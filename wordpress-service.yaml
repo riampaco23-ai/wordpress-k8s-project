@@ -1,4 +1,3 @@
-cat <<'EOF' > wordpress-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -6,10 +5,10 @@ metadata:
   namespace: wp-prod
 spec:
   type: NodePort
+  selector:
+    app: wordpress
   ports:
     - port: 80
       targetPort: 80
-      nodePort: 30080
-  selector:
-    app: wordpress
-EOF
+      nodePort: 30081  # différent de 30080 pour éviter conflit
+

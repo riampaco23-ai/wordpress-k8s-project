@@ -1,7 +1,6 @@
-cat <<'EOF' > kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: wp-prod
+namespace: wordpress
 resources:
   - namespace.yaml
   - mariadb-secret.yaml
@@ -10,4 +9,4 @@ resources:
   - wordpress-secret.yaml
   - wordpress-deployment.yaml
   - wordpress-service.yaml
-EOF
+
